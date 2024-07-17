@@ -294,7 +294,7 @@ namespace Nabo
 		Heap heap(k);
 		std::vector<T> off(dim, 0);
 
-#pragma omp for reduction(+:leafTouchedCount) schedule(guided,32)
+// #pragma omp for reduction(+:leafTouchedCount) schedule(guided,32)
 		for (int i = 0; i < colCount; ++i)
 		{
 			leafTouchedCount += onePointKnn(query, indices, dists2, i, heap, off, maxError2, maxRadius2, allowSelfMatch, collectStatistics, sortResults);
@@ -324,7 +324,7 @@ namespace Nabo
 		Heap heap(k);
 		std::vector<T> off(dim, 0);
 		
-#pragma omp for reduction(+:leafTouchedCount) schedule(guided,32)
+// #pragma omp for reduction(+:leafTouchedCount) schedule(guided,32)
 		for (int i = 0; i < colCount; ++i)
 		{
 			const T maxRadius(maxRadii[i]);
